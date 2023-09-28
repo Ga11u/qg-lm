@@ -9,8 +9,8 @@ import evaluate
 
 MAX_TOKENS = 2**7
 
-model = T5ForConditionalGeneration.from_pretrained("facebook/bart-base")
-tokenizer = T5TokenizerFast.from_pretrained("facebook/bart-base")
+model = BartForConditionalGeneration.from_pretrained("facebook/bart-base")
+tokenizer = BartTokenizerFast.from_pretrained("facebook/bart-base")
 
 """
 Loading the datasets (it is asumed that the data sets are in the same directory)
