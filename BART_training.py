@@ -8,6 +8,7 @@ from datasets import Dataset
 import evaluate
 
 MAX_TOKENS = 2**7
+EPOCH = 3
 
 model = BartForConditionalGeneration.from_pretrained("facebook/bart-base")
 tokenizer = BartTokenizerFast.from_pretrained("facebook/bart-base")
@@ -74,7 +75,7 @@ training_args = Seq2SeqTrainingArguments(
     evaluation_strategy="steps",
     save_strategy = "steps",
     learning_rate=1e-5,
-    num_train_epochs=3,
+    num_train_epochs=EPOCH,
     weight_decay=0.01,
     auto_find_batch_size = True,
     fp16 = True,
