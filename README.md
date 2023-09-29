@@ -20,9 +20,9 @@ pip install transformers datasets evaluate accelerate rouge_score polars
 
 ## Results
 
-Training results were evaluated with BLEU [0,1] and ROUGE [0,100]. In both models for BLUE the results were < 0.22 and ROUGE < 0.37 .
+Training results were evaluated with BLEU [0,1] and ROUGE [0,100].
 
 |Model|BLEU|ROUGE 1|ROUGE 2|ROUGE L|
 |-----|-----|---|-----|----|
 |T5|0|0.027400 | 0.011600 | 0.024600 |
-|BART|0|0.027400 | 0.011600 | 0.024600 |
+|BART|0.092000| 0.338100| 0.14360 | 0.310400 |
