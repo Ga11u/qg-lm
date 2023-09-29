@@ -83,7 +83,7 @@ training_args = Seq2SeqTrainingArguments(
     fp16 = True,
     fp16_full_eval = True,
     metric_for_best_model = "bleu",
-    generation_max_length = MAX_TOKENS,
+    #generation_max_length = MAX_TOKENS,
     load_best_model_at_end = True
 )
 
