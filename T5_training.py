@@ -9,7 +9,7 @@ import evaluate
 
 MAX_TOKENS = 2**7
 
-model = T5ForConditionalGeneration.from_pretrained("t5-small")
+model = T5ForConditionalGeneration.from_pretrained("t5-base")
 tokenizer = T5TokenizerFast.from_pretrained("t5-base")
 
 """
