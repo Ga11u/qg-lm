@@ -50,11 +50,10 @@ valid_data = valid_ds.map(answer_question_generator, batched=True)
 valid_data = valid_data.remove_columns(["claim_reviewed","question"])
 
 
+bleu = evaluate.load('bleu')
+rouge = evaluate.load('rouge')
 def compute_metrics(eval_preds):
-  bleu = evaluate.load('bleu')
-  rouge = evaluate.load('rouge')
-  labels_ids = eval_preds.label_ids
-  pred_ids = eval_preds.predictions
+  pred_ids, labels_ids = eval_preds
   pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
   label_str = tokenizer.batch_decode(labels_ids, skip_special_tokens=True)
   bleu_output = bleu.compute(predictions=pred_str, references=label_str)
