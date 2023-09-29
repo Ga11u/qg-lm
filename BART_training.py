@@ -11,6 +11,8 @@ MAX_TOKENS = 2**7
 
 model = BartForConditionalGeneration.from_pretrained("facebook/bart-base")
 tokenizer = BartTokenizerFast.from_pretrained("facebook/bart-base")
+bleu = evaluate.load('bleu')
+rouge = evaluate.load('rouge')
 
 """
 Loading the datasets (it is asumed that the data sets are in the same directory)
@@ -50,8 +52,6 @@ valid_data = valid_ds.map(answer_question_generator, batched=True)
 valid_data = valid_data.remove_columns(["claim_reviewed","question"])
 
 
-bleu = evaluate.load('bleu')
-rouge = evaluate.load('rouge')
 def compute_metrics(eval_preds):
   pred_ids, labels_ids = eval_preds
   pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
