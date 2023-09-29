@@ -6,10 +6,11 @@
 - accelerate
 - rouge_score
 - polars
+- einops
 
 You can install them with:
 ```sh
-pip install transformers datasets evaluate accelerate rouge_score polars
+pip install transformers datasets evaluate accelerate rouge_score polars einops
 ```
 
 ## Files
