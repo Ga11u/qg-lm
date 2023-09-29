@@ -11,6 +11,8 @@ MAX_TOKENS = 2**7
 
 model = T5ForConditionalGeneration.from_pretrained("t5-base")
 tokenizer = T5TokenizerFast.from_pretrained("t5-base")
+bleu = evaluate.load('bleu')
+rouge = evaluate.load('rouge')
 
 """
 Loading the datasets (it is asumed that the data sets are in the same directory)
@@ -53,8 +55,6 @@ valid_data = valid_data.remove_columns(["claim_reviewed","question"])
 
 
 def compute_metrics(eval_preds):
-  bleu = evaluate.load('bleu')
-  rouge = evaluate.load('rouge')
   labels_ids = eval_preds.label_ids
   pred_ids = eval_preds.predictions
   pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
